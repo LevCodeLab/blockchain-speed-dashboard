@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+@source "../app";
+@source "../components";
+@source "../hooks";
+@source "../lib";
+@import 'tw-animate-css';
+
+:root {
+  --font-instrument: 'Instrument Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-instrument-serif: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-jetbrains: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --background: #0B0B0E;
+  --foreground: #FFFFFF;
+  --card: #141418;
+  --card-foreground: #E4E4E7;
+  --popover: #141418;
+  --popover-foreground: #E4E4E7;
+  --primary: #FFFFFF;
+  --primary-foreground: #000000;
+  --secondary: #141418;
+  --secondary-foreground: #E4E4E7;
+  --muted: #141418;
+  --muted-foreground: #A1A1AA;
+  --accent: #1C1C22;
+  --accent-foreground: #FFFFFF;
+  --destructive: #141418;
+  --destructive-foreground: #FFFFFF;
+  --border: #26262E;
+  --input: #26262E;
+  --ring: #FFFFFF;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-instrument);
+  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-instrument-serif);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/40;
+  }
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  body {
+    background-color: #0B0B0E;
+    color: #E4E4E7;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
